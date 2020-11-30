@@ -31,6 +31,7 @@ public class MyLinkList<K> {
 				myNode.append("->");
 			tempNode = tempNode.getNext();
 		}
+		myNode.append(tail.getKey());
 		System.out.println(myNode);
 	}
 
@@ -68,8 +69,25 @@ public class MyLinkList<K> {
 			tempNode = tempNode.getNext();
 		}
 		this.tail = tempNode;
-		 tempNode= tempNode.getNext();
+		tempNode = tempNode.getNext();
 		return tempNode;
+	}
+
+	public INode Search(K Key) {
+		int flag = 0;
+		INode tempNode = head;
+		while (tempNode != null) {
+			if (tempNode.getKey() == Key) {
+				System.out.println("Key is present");
+				flag = 1;
+				break;
+			}
+			tempNode = tempNode.getNext();
+		}
+		if (flag == 0)
+			System.out.println("Key is not present");
+		return null;
+
 	}
 
 	public static void main(String[] args) {
@@ -82,8 +100,8 @@ public class MyLinkList<K> {
 		myLinkList.append(myFirstNode);
 		myLinkList.append(myThirdNode);
 		myLinkList.insert(myFirstNode, mySecondNode);
-		myLinkList.popLast();
 		myLinkList.printMyNodes();
+		myLinkList.Search(30);
 
 	}
 
