@@ -51,6 +51,12 @@ public class MyLinkList<K> {
 		return null;
 	}
 
+	public void insert(INode myNode, INode newNode) {
+		INode tempNode = myNode.getNext();
+		myNode.setNext(newNode);
+		newNode.setNext(tempNode);
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Welcome to Linked List Problem");
 		MyLinkList myLinkList = new MyLinkList();
@@ -59,8 +65,8 @@ public class MyLinkList<K> {
 		MyNode<Integer> myThirdNode = new MyNode<Integer>(70);
 
 		myLinkList.append(myFirstNode);
-		myLinkList.append(mySecondNode);
 		myLinkList.append(myThirdNode);
+		myLinkList.insert(myFirstNode, mySecondNode);
 		myLinkList.printMyNodes();
 
 	}
