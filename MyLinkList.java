@@ -57,6 +57,12 @@ public class MyLinkList<K> {
 		newNode.setNext(tempNode);
 	}
 
+	public INode pop() {
+		INode tempNode = this.head;
+		this.head = head.getNext();
+		return tempNode;
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Welcome to Linked List Problem");
 		MyLinkList myLinkList = new MyLinkList();
@@ -67,6 +73,7 @@ public class MyLinkList<K> {
 		myLinkList.append(myFirstNode);
 		myLinkList.append(myThirdNode);
 		myLinkList.insert(myFirstNode, mySecondNode);
+		myLinkList.pop();
 		myLinkList.printMyNodes();
 
 	}
