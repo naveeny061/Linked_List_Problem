@@ -31,7 +31,6 @@ public class MyLinkList<K> {
 				myNode.append("->");
 			tempNode = tempNode.getNext();
 		}
-		myNode.append(tempNode.getKey());
 		System.out.println(myNode);
 	}
 
@@ -63,6 +62,16 @@ public class MyLinkList<K> {
 		return tempNode;
 	}
 
+	public INode popLast() {
+		INode tempNode = head;
+		while (!tempNode.getNext().equals(tail)) {
+			tempNode = tempNode.getNext();
+		}
+		this.tail = tempNode;
+		 tempNode= tempNode.getNext();
+		return tempNode;
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Welcome to Linked List Problem");
 		MyLinkList myLinkList = new MyLinkList();
@@ -73,7 +82,7 @@ public class MyLinkList<K> {
 		myLinkList.append(myFirstNode);
 		myLinkList.append(myThirdNode);
 		myLinkList.insert(myFirstNode, mySecondNode);
-		myLinkList.pop();
+		myLinkList.popLast();
 		myLinkList.printMyNodes();
 
 	}
